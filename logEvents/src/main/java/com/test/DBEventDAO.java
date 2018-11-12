@@ -1,8 +1,13 @@
 package com.test;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.sql.Connection;
 
 public class DBEventDAO {
+
+    private static final Logger logger = LoggerFactory.getLogger(DBEventDAO.class);
 
     Connection connection;
 
@@ -16,7 +21,7 @@ public class DBEventDAO {
 
     public void saveDBEvent(DBEvent dbEvent) {
         // would use a prepared statement here and just map in the fields from the db event the table
-        System.out.println("persisting db event " + dbEvent.getId() + ", duration is " + dbEvent.getDuration());
+        logger.info("persisting db event " + dbEvent.getId() + ", duration is " + dbEvent.getDuration());
     }
 
 }
